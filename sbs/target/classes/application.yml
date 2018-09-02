@@ -1,0 +1,36 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: 'z#UM]H<Z5R?J{FPT'
+    key-store-type: PKCS12
+    key-alias: group8
+spring:
+  mvc:
+    view:
+      prefix: '/'
+      suffix: '.jsp'
+  datasource:
+    url: jdbc:h2:~/persistent_db
+    username: group8
+    password: '",pa7M}<vBGA*gD_'
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: cse545group8@gmail.com
+    password: '}g3u<"PKgC+We3}L'
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+          ssl:
+            enable: true
+

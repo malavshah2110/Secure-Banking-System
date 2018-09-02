@@ -1,0 +1,20 @@
+/*** SSL PKI ***/
+
+// To create certificate:
+keytool -genkey -alias group8 -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+Password = z#UM]H<Z5R?J{FPT
+CN = example.com
+OU = CSE545 Group 8
+O = Arizona State University
+L = Tempe
+S = Arizona
+C = US
+
+// To grab key and crt:
+openssl pkcs12 -in keystore.p12 -out package.pem -nodes
+
+/*** LOG PKI ***/
+
+openssl genrsa -out private.pem 2048
+openssl pkcs8 -topk8 -in private.pem -outform DER -out private.der -nocrypt
+openssl rsa -in private.pem -pubout -outform DER -out public.der 
